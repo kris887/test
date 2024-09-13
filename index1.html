@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Usługi - Świadectwa Charakterystyki Energetycznej</title>
+        <link rel="stylesheet" href="styles1.css">
+    </head>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 15px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .content {
+            display: flex;
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .description {
+            flex: 1;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .contact-details {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            color: #333;
+        }
+
+        .contact-details p {
+            margin: 10px 0;
+        }
+
+        .company-details {
+            margin-top: 20px;
+        }
+
+        .blog-posts {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .post {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            padding: 15px;
+            position: relative;
+        }
+        h2 {
+            margin: 0;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+
+        .post h2 {
+            margin: 0;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+        
+        .post p {
+            display: none;
+            margin: 10px 0 0;
+        }
+        .post p2 {
+            background-color: #fff;
+            display: none;
+            margin: 10px 0 0;
+        }
+        .post p1 {
+            display: none;
+            margin: 10px 0 0;
+        }
+        .post.active p {
+            display: block;
+        }
+
+        .post::before {
+            content: '+';
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 1.5em;
+            cursor: pointer;
+            color: #007BFF;
+        }
+
+        .post.active::before {
+            content: '-';
+        }
+        body b1 {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .features {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .features div {
+            flex: 1;
+            position: relative;
+            padding: 10px;
+            margin-bottom: 1cm; /* Przerwa między sekcjami */
+        }
+        .stars {
+            width: 40px;
+            height: 40px;
+            background-image: url('gwiazdka.jpg'); /* Zamień na link do obrazka gwiazdki */
+            background-size: cover;
+            display: inline-block;
+        }
+        .dolar {
+            width: 80px;
+            height: 80px;
+            background-image: url('dolar_g.gif'); /* Zamień na link do obrazka gwiazdki */
+            background-size: cover;
+            display: inline-block;
+        }
+        .ankieta {
+            width: 80px;
+            height: 80px;
+            background-image: url('ankieta_g.png'); /* Zamień na link do obrazka gwiazdki */
+            background-size: cover;
+            display: inline-block;
+        }
+
+        .certyfikat {
+            width: 80px;
+            height: 80px;
+            background-image: url('certyfikat_g.gif'); /* Zamień na link do obrazka gwiazdki */
+            background-size: cover;
+            display: inline-block;
+        }
+        .telefon {
+            width: 80px;
+            height: 80px;
+            background-image: url('telefon_g.gif'); /* Zamień na link do obrazka gwiazdki */
+            background-size: cover;
+            display: inline-block;
+        }
+        .dostawa {
+            width: 80px;
+            height: 80px;
+            background-image: url('dostawa_g.gif'); /* Zamień na link do obrazka gwiazdki */
+            background-size: cover;
+            display: inline-block;
+            display: flex;
+            justify-content: right; /* Wyśrodkowanie poziome */
+            align-items: normal; /* Wyśrodkowanie pionowe */
+        }
+        .zalety {
+        background-color: #ffffff; /* Ustaw wybrany kolor tła, np. beżowy */
+        padding: 20px 20px; /* Opcjonalnie, dodaj marginesy wewnętrzne */
+        display: block;
+        
+        max-width: 1500px; /* Maksymalna szerokość karty */
+        width: 100%; /* Karta zajmuje 100% dostępnego miejsca */
+        margin: 0 auto; /* Wyśrodkowanie sekcji */
+        transition: transform 0.3s ease;
+        gap: 1px;
+        }
+        .zalety1 {
+        background-color:  #f4f4f4; /* Ustaw wybrany kolor tła, np. beżowy */
+        padding: 20px 20px; /* Opcjonalnie, dodaj marginesy wewnętrzne */
+        display: block;
+        
+        max-width: 1400px; /* Maksymalna szerokość karty */
+        width: 100%; /* Karta zajmuje 100% dostępnego miejsca */
+        margin: 0 auto; /* Wyśrodkowanie sekcji */
+        transition: transform 0.3s ease;
+        gap: 1px;
+        }
+        h8 {
+            margin: 2;
+            font-size: 3.0em;
+            cursor: pointer;
+            text-align: center;
+        }
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.services {
+    padding: 20px;
+    text-align: center;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-card {
+    display: block;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 400px; /* Maksymalna szerokość karty */
+    width: 100%; /* Karta zajmuje 100% dostępnego miejsca */
+    transition: transform 0.3s ease;
+}
+
+
+
+.service-card:hover {
+    transform: scale(1.05); /* Powiększenie na hover */
+}
+
+.service-card img {
+    width: 100%; /* Obraz dostosowuje się do szerokości karty */
+    height: auto; /* Zachowanie proporcji */
+}
+
+.service-info {
+    padding: 10px;
+}
+
+.price {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Responsywność dla tabletów */
+@media (max-width: 768px) {
+    .service-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        max-width: 80%; /* Karty będą zajmować 80% szerokości okna na tabletach */
+    }
+}
+
+/* Responsywność dla urządzeń mobilnych */
+@media (max-width: 480px) {
+    .service-card {
+        max-width: 100%; /* Karty będą zajmować 100% szerokości okna na komórkach */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Zmniejszenie rozmiaru nagłówka na mniejszych ekranach */
+    }
+}
+
+
+        
+       
+    </style>
+
+
+
+
+<body>
+    <header>
+        <nav>
+            <a href="index1.html" class="logo">Energetyka024</a>
+            <ul class="nav-links">
+                <li><a href="index1.html">Strona główna</a></li>
+                <li><a href="uslugi1.html">Usługi</a></li>
+                <li><a href="blog1.html">Blog</a></li>
+                <li><a href="kontakt1.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+        <div class="description">
+            <h2>O naszych certyfikatach</h2>
+            <p>Nasze certyfikaty energetyczne są profesjonalnie wykonane i spełniają wszystkie wymagania prawne. Zespół naszych ekspertów zapewnia najwyższą jakość usług i precyzyjne oceny energetyczne budynków.</p>
+            <p>Posiadamy wieloletnie doświadczenie w branży, dzięki czemu możemy zaoferować Państwu szybkie i rzetelne wykonanie świadectw energetycznych. Nasze certyfikaty pomagają właścicielom budynków w zrozumieniu efektywności energetycznej ich nieruchomości i wprowadzeniu ewentualnych usprawnień.</p>
+        </div>
+        <div class="image">
+            <img src="certyfikat.jpg" alt="Certyfikat energetyczny">
+        </div>
+        
+    </section>
+
+    <section class="zalety">
+        <h8>Świadectwo online - jak to działa?</h8>
+        <div class="features">
+            <div>
+                <div class="ankieta"> </div>
+                <h2>Zbieranie informacji</h2>
+                <p>Zbieranie danych / wypełnienie formularza. Wypełniamy w zakładce <a href="uslugi1.html">usługi</a> w zależności od budynku.</p>
+            </div>
+            <div>
+                <div class="dolar"></div>
+                <h2>Zamówienie</h2>
+                <p> Złożenie zamówienia oraz opłata.</p> 
+                <p2> .</p2>
+            </div>
+            <div>
+                <div class="telefon"></div>
+                <h2>Weryfikacja </h2>
+                <p> Weryfikacja otrzymanych danych.</p>
+                <p2> .</p2>
+            </div>
+            <div>
+                <div class="certyfikat"></div>
+                <h2>Wykonanie ŚCHE</h2>
+                <p> Przygotowanie świadectwa charakterystyki energetycznej.</p>
+            </div>
+            <div>
+                <div class="dostawa"></div>
+                <h2>Dostawa</h2>
+                <p> Wysyłka gotowego ŚCHE na maila.</p>
+                <p2> .</p2>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="services">
+        <h1>Nasze Usługi - Świadectwa Charakterystyki Energetycznej (ŚCHE) </h1>
+        <p>Zajmujemy się profesjonalnym wydawaniem świadectw charakterystyki energetycznej dla różnych typów nieruchomości, takich jak mieszkania, domy i lokale komercyjne. Wybierz odpowiednią kategorię, aby dowiedzieć się więcej o naszych usługach i cennikach.</p>
+        
+        <div class="service-cards">
+            <a href="mieszkanie1.html" class="service-card" aria-label="Świadectwo charakterystyki energetycznej dla mieszkania">
+                <img src="mieszkanie.jpg" alt="Świadectwo charakterystyki energetycznej dla mieszkania" title="Świadectwo energetyczne mieszkania">
+                <div class="service-info">
+                    <h2>Świadectwo Charakterystyki Energetycznej dla Mieszkania</h2>
+                    <p class="price">250 zł</p>
+                </div>
+            </a>
+            <a href="dom1.html" class="service-card" aria-label="Świadectwo charakterystyki energetycznej dla domu">
+                <img src="dom.jpg" alt="Świadectwo charakterystyki energetycznej dla domu" title="Świadectwo energetyczne domu">
+                <div class="service-info">
+                    <h2>Świadectwo Charakterystyki Energetycznej dla Domu</h2>
+                    <p class="price">500 zł</p>
+                </div>
+            </a>
+            <a href="lokal1.html" class="service-card" aria-label="Świadectwo charakterystyki energetycznej dla lokalu">
+                <img src="lokal.jpg" alt="Świadectwo charakterystyki energetycznej dla lokalu" title="Świadectwo charakterystyki energetycznej dla lokalu">
+                <div class="service-info">
+                    <h2>Świadectwo Charakterystyki Energetycznej dla Lokalu</h2>
+                    <p class="price">400 zł</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section class="zalety1">
+    <h1>Czym się wyróżniamy?</h1>
+    <div class="features">
+        <div>
+            <div class="stars"></div>
+            <h2>Szybka realizacja zamówień</h2>
+            <p>Dzięki doświadczonemu zespołowi gwarantujemy szybkie i efektywne wykonanie zamówień.</p>
+        </div>
+        <div>
+            <div class="stars"></div>
+            <h2>Najlepsza obsługa klienta</h2>
+            <p> Zawsze stawiamy na profesjonalizm, szybki kontakt oraz pełne wsparcie na każdym etapie realizacji.</p> 
+        </div>
+        <div>
+            <div class="stars"></div>
+            <h2>Świadectwa wgrywamy do baz rządowych</h2>
+            <p> Zapewniamy bezpieczne i terminowe przekazanie świadectw do odpowiednich baz rządowych, oszczędzając klientom formalności.</p>
+        </div>
+    </div>
+</section>
+
+    <section class="blog-posts">
+        <article class="post">
+            <h2>Co to jest świadectwo charakterystyki energetycznej?</h2>
+            <p>Świadectwo charakterystyki energetycznej budynku określa jego efektywność energetyczną. Jest to ważny dokument, który może wpłynąć na decyzje zakupowe.</p>
+        </article>
+        <article class="post">
+            <h2>Jak długo jest ważny certyfikat energetyczny?</h2>
+            <p>Świadectwo charakterystyki energetycznej jest ważne przez ,<b> 10 lat </b> od dnia jego wydania. Certyfikaty wydane przed dniem 28 kwietnia 2023 roku zachowują ważność zgodnie z okresem, na jaki zostały sporządzone.</p>
+        </article>
+        <article class="post">
+            <h2>Kiedy jest wymagany certyfikat energetyczny?</h2>
+            <p>Przy <b> sprzedaży, wynajmie </b> oraz remoncie nieruchomości.</p>
+        </article>
+        <article class="post">
+            <h2>Jakie są korzyści z posiadania świadectwa?</h2>
+            <p>Posiadanie świadectwa charakterystyki energetycznej może przynieść korzyści takie jak obniżenie kosztów ogrzewania, lepsza ocena nieruchomości, a także spełnienie wymogów prawnych.</p>
+        </article> 
+
+       
+
+    </section>
+
+    <script>
+        document.querySelectorAll('.post h2').forEach((heading) => {
+            heading.addEventListener('click', () => {
+                const post = heading.parentElement;
+                post.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+
+
+
+<footer>
+    &copy; 2024 Świadectwa Charakterystyki Energetycznej. Wszelkie prawa zastrzeżone.
+</footer>
+
+
+</html>

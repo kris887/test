@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom - Formularz</title>
+    <link rel="stylesheet" href="styles1.css">
+    <style>
+        .hidden-table {
+            border-collapse: collapse;
+            width: 0;
+            height: 0;
+            visibility: hidden;
+            position: absolute;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Energetyka024</div>
+            <ul class="nav-links">
+                <li><a href="index1.html">Strona główna</a></li>
+                <li><a href="uslugi1.html">Usługi</a></li>
+                <li><a href="blog1.html">Blog</a></li>
+                <li><a href="kontakt1.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-form">
+        <h2>Formularz dla Domu</h2>
+        <form action="submit.php" method="post" enctype="multipart/form-data" id="contactForm">
+            <!-- Dane informacyjne -->
+            <div class="form-section">
+                <h3>Dane informacyjne</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="first_name">Imię:</label>
+                        <input type="text" id="first_name" name="first_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Nazwisko:</label>
+                        <input type="text" id="last_name" name="last_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Numer telefonu:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dane adresowe domu -->
+            <div class="form-section">
+                <h3>Dane adresowe domu</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="province">Województwo:</label>
+                        <input type="text" id="province" name="province" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="county">Powiat:</label>
+                        <input type="text" id="county" name="county" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">Miasto:</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postal_code">Kod pocztowy:</label>
+                        <input type="text" id="postal_code" name="postal_code" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="street">Ulica:</label>
+                        <input type="text" id="street" name="street" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="building_number">Numer budynku:</label>
+                        <input type="text" id="building_number" name="building_number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apartment_number">Numer domu:</label>
+                        <input type="text" id="apartment_number" name="apartment_number">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Podstawowe dane domu -->
+            <div class="form-section">
+                <h3>Podstawowe dane domu</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="total_area">Całkowita powierzchnia użytkowa [m²]:</label>
+                        <input type="text" id="total_area" name="total_area" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="year_built">Rok oddania do użytkowania:</label>
+                        <input type="text" id="year_built" name="year_built" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ceiling_height">Wysokość pomieszczeń [m]:</label>
+                        <input type="text" id="ceiling_height" name="ceiling_height" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="external_walls">Ile mieszkanie ma ścian zewnętrznych:</label>
+                        <input type="text" id="external_walls" name="external_walls" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="floor">Na jakim piętrze znajduje się mieszkanie:</label>
+                        <input type="text" id="floor" name="floor" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Klimatyzacja i inne -->
+            <div class="form-section">
+                <h3>Klimatyzacja i inne</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Czy dom posiada klimatyzację:</label>
+                        <div class="radio-group">
+                            <input type="radio" id="ac_yes" name="ac" value="tak">
+                            <label for="ac_yes">TAK</label>
+                            <input type="radio" id="ac_no" name="ac" value="nie">
+                            <label for="ac_no">NIE</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Czy dom posiada instalację fotowoltaiczną:</label>
+                        <div class="radio-group">
+                            <input type="radio" id="pv_yes" name="pv" value="tak">
+                            <label for="pv_yes">TAK</label>
+                            <input type="radio" id="pv_no" name="pv" value="nie">
+                            <label for="pv_no">NIE</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Czy budynek przechodził termomodernizację:</label>
+                        <div class="radio-group">
+                            <input type="radio" id="thermal_yes" name="thermal" value="tak">
+                            <label for="thermal_yes">TAK</label>
+                            <input type="radio" id="thermal_no" name="thermal" value="nie">
+                            <label for="thermal_no">NIE</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rodzaje ogrzewania -->
+            <div class="form-section">
+                <h3>Rodzaj ogrzewania</h3>
+                <div class="form-group">
+                    <label for="heating_type">Rodzaj ogrzewania:</label>
+                    <select id="heating_type" name="heating_type">
+                        <option value="sieci_miejska">Sieć miejska</option>
+                        <option value="grzejnik_elektryczny">Grzejnik elektryczny</option>
+                        <option value="kociol_biomasa">Kocioł na biomasę</option>
+                        <option value="kociol_ekogroszek">Kocioł na ekogroszek</option>
+                        <option value="kociol_weglowy">Kocioł węglowy</option>
+                        <option value="kociol_olejowy">Kocioł olejowy</option>
+                        <option value="kociol_gazowy_mieszkanie">Kocioł gazowy w mieszkaniu</option>
+                        <option value="kociol_gazowy_kotlownia">Kocioł gazowy w kotłowni</option>
+                        <option value="energia_geotermalna">Energia geotermalna</option>
+                        <option value="piec_kaflowy">Piec kaflowy</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Rodzaje ogrzewania ciepłej wody -->
+            <div class="form-section">
+                <h3>Rodzaj ogrzewania ciepłej wody</h3>
+                <div class="form-group">
+                    <label for="water_heating">Rodzaj ogrzewania ciepłej wody:</label>
+                    <select id="water_heating" name="water_heating">
+                        <option value="sieci_miejska">Sieć miejska</option>
+                        <option value="elektryczny_pogrzewacz_akumulacyjny">Elektryczny pogrzewacz akumulacyjny</option>
+                        <option value="elektryczny_pogrzewacz_przeplywowy">Elektryczny pogrzewacz przepływowy</option>
+                        <option value="kociol_biomasa">Kocioł na biomasę</option>
+                        <option value="kociol_ekogroszek">Kocioł na ekogroszek</option>
+                        <option value="kociol_weglowy">Kocioł węglowy</option>
+                        <option value="kociol_olejowy">Kocioł olejowy</option>
+                        <option value="kociol_gazowy_mieszkanie">Kocioł gazowy w mieszkaniu</option>
+                        <option value="kociol_gazowy_kotlownia">Kocioł gazowy w kotłowni</option>
+                        <option value="energia_geotermalna">Energia geotermalna</option>
+                        <option value="piec_kaflowy">Piec kaflowy</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Rodzaje grzejników -->
+            <div class="form-section">
+                <h3>Rodzaj zainstalowanych grzejników</h3>
+                <div class="form-group">
+                    <label for="radiators">Rodzaj zainstalowanych grzejników:</label>
+                    <select id="radiators" name="radiators">
+                        <option value="plytowe">Płytowe</option>
+                        <option value="czolowe">Czołowe</option>
+                        <option value="zeliwne">Żeliwne</option>
+                        <option value="podlogowe">Podłogowe</option>
+                        <option value="piecowe">Piecowe</option>
+                        <option value="kominkowe">Kominkowe</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Rodzaje wentylacji -->
+            <div class="form-section">
+                <h3>Rodzaj wentylacji</h3>
+                <div class="form-group">
+                    <label for="ventilation">Rodzaj wentylacji:</label>
+                    <select id="ventilation" name="ventilation">
+                        <option value="grawitacyjna">Grawitacyjna</option>
+                        <option value="mechaniczno_wywiewna">Mechaniczno-wywiewna</option>
+                        <option value="mechaniczno_wywiewno_nawiewna">Mechaniczno-wywiewno-nawiewna</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Materiał ram okien -->
+            <div class="form-section">
+                <h3>Materiał ram okien</h3>
+                <div class="form-group">
+                    <label for="window_frame">Materiał ram okien:</label>
+                    <select id="window_frame" name="window_frame">
+                        <option value="plastikowe">Plastikowe (PCV)</option>
+                        <option value="drewniane">Drewniane</option>
+                        <option value="aluminiowe">Aluminiowe</option>
+                        <option value="stalowe">Stalowe</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Liczba szyb w oknach -->
+            <div class="form-section">
+                <h3>Liczba szyb w oknach</h3>
+                <div class="form-group">
+                    <label for="window_glazing">Liczba szyb w oknach:</label>
+                    <select id="window_glazing" name="window_glazing">
+                        <option value="jednoszybowe">Jednoszybowe</option>
+                        <option value="dwuszybowe">Dwuszybowe</option>
+                        <option value="trzyszybowe">Trzyszybowe</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Materiały i grubości -->
+            <div class="form-section">
+                <h3>Materiały oraz grubości</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="external_walls_material">Ściany zewnętrzne:</label>
+                        <textarea id="external_walls_material" name="external_walls_material" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="internal_walls_material">Ściany wewnętrzne:</label>
+                        <textarea id="internal_walls_material" name="internal_walls_material" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="floor_ceiling_material">Strop - podłoga:</label>
+                        <textarea id="floor_ceiling_material" name="floor_ceiling_material" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="roof_material">Strop - sufit/dach:</label>
+                        <textarea id="roof_material" name="roof_material" rows="2"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Przeciągnij i upuść -->
+            <div class="form-section">
+                <h3>Rzut pomieszczenia</h3>
+                <div class="file-upload" id="dropzone">
+                    <i class="fas fa-upload fa-2x"></i>
+                    <p>Przeciągnij i upuść pliki tutaj (lub kliknij, aby wybrać pliki)</p>
+                    <input type="file" name="files[]" multiple>
+                </div>
+            </div>
+
+            <!-- Przeciągnij i upuść -->
+            <div class="form-section">
+                <h3>Załączniki</h3>
+                <div class="file-upload" id="dropzone">
+                    <i class="fas fa-upload fa-2x"></i>
+                    <p>Przeciągnij i upuść pliki tutaj (lub kliknij, aby wybrać pliki)</p>
+                    <input type="file" name="files[]" multiple>
+                </div>
+            </div>
+
+            <!-- Oświadczenia -->
+            <div class="form-section">
+                <div class="form-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">Akceptuję regulamin usługi www.mojastrona.com oraz wyrażam zgodę na przetwarzanie moich danych osobowych. Zezwalam także na kontakt w sprawie sporządzenia audytu energetycznego.</label>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <div class="form-group">
+                    <input type="checkbox" id="terms2" name="terms2" required>
+                    <label for="terms2" class="checkbox-label">Oświadczam, że podane dane są zgodne ze stanem faktycznym wszystkich parametrów budynku. Oświadczam, że posiadam prawo do dysponowania nieruchomością na cele sporządzenia Świadectwa.</label>
+                </div>
+            </div>
+
+            <!-- Przycisk wysyłania -->
+            <div class="form-section form-section-center">
+                <button type="submit" class="submit-btn">Zamów certyfikat</button>
+            </div>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Energetyczne Świadectwa. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
+    <script>
+        Dropzone.autoDiscover = false;
+        const dropzone = new Dropzone("#dropzone", {
+            url: "/upload",
+            acceptedFiles: ".jpg,.jpeg,.png,.pdf",
+            addRemoveLinks: true,
+            dictDefaultMessage: "Przeciągnij i upuść pliki tutaj (lub kliknij, aby wybrać pliki)",
+            init: function () {
+                this.on("success", function (file, response) {
+                    console.log("File uploaded successfully");
+                });
+                this.on("error", function (file, response) {
+                    console.error("Error uploading file: ", response);
+                });
+            }
+        });
+    </script>
+
+
+</body>
+</html>

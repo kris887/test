@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usługi - Świadectwa Charakterystyki Energetycznej</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.services {
+    padding: 20px;
+    text-align: center;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-card {
+    display: block;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 400px; /* Maksymalna szerokość karty */
+    width: 100%; /* Karta zajmuje 100% dostępnego miejsca */
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: scale(1.05); /* Powiększenie na hover */
+}
+
+.service-card img {
+    width: 100%; /* Obraz dostosowuje się do szerokości karty */
+    height: auto; /* Zachowanie proporcji */
+}
+
+.service-info {
+    padding: 10px;
+}
+
+.price {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Responsywność dla tabletów */
+@media (max-width: 768px) {
+    .service-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card {
+        max-width: 80%; /* Karty będą zajmować 80% szerokości okna na tabletach */
+    }
+}
+
+/* Responsywność dla urządzeń mobilnych */
+@media (max-width: 480px) {
+    .service-card {
+        max-width: 100%; /* Karty będą zajmować 100% szerokości okna na komórkach */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Zmniejszenie rozmiaru nagłówka na mniejszych ekranach */
+    }
+}
+</style>
+
+
+<body>
+    <header>
+        <nav>
+            <a href="index1.html" class="logo">Energetyka024</a>
+            <ul class="nav-links">
+                <li><a href="index1.html">Strona główna</a></li>
+                <li><a href="uslugi1.html">Usługi</a></li>
+                <li><a href="blog1.html">Blog</a></li>
+                <li><a href="kontakt1.html">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="services">
+        <h1>Nasze Usługi</h1>
+        <p>Zajmujemy się wydawaniem świadectw charakterystyki energetycznej dla różnych typów nieruchomości. Wybierz odpowiednią kategorię, aby dowiedzieć się więcej o naszych usługach.</p>
+        
+        <div class="service-cards">
+            <a href="mieszkanie1.html" class="service-card">
+                <img src="mieszkanie.jpg" alt="Mieszkanie">
+                <div class="service-info">
+                    <h2>Mieszkanie</h2>
+                    <p class="price">250 zł</p>
+                </div>
+            </a>
+            <a href="dom1.html" class="service-card">
+                <img src="dom.jpg" alt="Dom">
+                <div class="service-info">
+                    <h2>Dom</h2>
+                    <p class="price">500 zł</p>
+                </div>
+            </a>
+            <a href="lokal1.html" class="service-card">
+                <img src="lokal.jpg" alt="Lokal">
+                <div class="service-info">
+                    <h2>Lokal</h2>
+                    <p class="price">400 zł</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 Świadectwa Charakterystyki Energetycznej. Wszelkie prawa zastrzeżone.
+    </footer>
+</body>
+
+</html>
+<!-- Numer: 1 -->
